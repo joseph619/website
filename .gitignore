@@ -14,3 +14,7 @@ npm-debug.log
 
 # Compiled site
 /public/
+
+# Ignore Visual Studio Code files
+*.code-workspace
+.vscode/launch.json

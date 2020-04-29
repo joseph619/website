@@ -2,48 +2,34 @@ module.exports = {
 	title: 'Tachiyomi',
 	description: 'Free and open source manga reader for Android.',
 	dest: './public',
+	head: [
+		['link', { rel: "preconnect", href: 'https://fonts.gstatic.com', crossorigin:""} , ''],
+		['link', { rel: "stylesheet", href: 'https://fonts.googleapis.com/css?family=Open+Sans'} , ''],
+	],
 	themeConfig: {
 		repo: 'inorichi/tachiyomi',
 		docsRepo: 'tachiyomiorg/website',
 		docsDir: 'src',
+		logo: '/assets/media/logo.svg',
 		editLinks: true,
-		nav: [
-			{ text: 'Guides', link: '/help/guides/getting-started' },
-			{ text: 'FAQ', link: '/help/faq/application' },
-			{ text: 'Extensions', link: '/extensions/' },
-			{ text: 'Wiki', link: 'https://github.com/inorichi/tachiyomi/wiki' },
-			{ text: 'Discord', link: 'https://discord.gg/tachiyomi' },
-			{ text: 'Reddit', link: 'https://reddit.com/r/Tachiyomi' }
-		],
-		sidebar: [
-			'/',
-			{
-				title: 'Guides',
-				children: ['/help/guides/getting-started', '/help/guides/reading-local-manga']
-			},
-			{
-				title: 'FAQ',
-				children: ['/help/faq/application', '/help/faq/extensions']
-			},
-			'/extensions/'
-		],
+		editLinkText: 'Help us improve this page',
+		nav: require('./config/nav'),
+		sidebar: {
+			'/help/guides/': require('./config/sidebar/guides'),
+			'/help/faq/': require('./config/sidebar/faq'),
+			'/help/contribution': require('./config/sidebar/contribution'),
+			'/extensions': require('./config/sidebar/extensions'),
+			'/forks': require('./config/sidebar/forks')
+		},
 		lastUpdated: 'Last Updated'
 	},
-	plugins: [
-		[
-		'@vuepress/back-to-top'
-		],
-		[
-		'@vuepress/google-analytics',
-			{ 'ga': 'UA-148212082-1' }
-		],
-		[
-		'container',
-			{
-				type: 'expander',
-				before: info => `<details><summary>${info}</summary>\n`,
-				after: '</details>\n'
-			}
-		]
+	plugins: require('./config/plugins'),
+	extraWatchFiles: [
+		'.vuepress/config/nav.js',
+		'.vuepress/config/plugins.js',
+		'.vuepress/config/sidebar/guides.js',
+		'.vuepress/config/sidebar/faq.js',
+		'.vuepress/config/sidebar/contribution.js',
+		'.vuepress/config/sidebar/extensions.js'
 	]
 }

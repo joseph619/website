@@ -1,0 +1,188 @@
+// Custom rules
+user-select()
+	-webkit-user-select arguments
+	-moz-user-select arguments
+	-ms-user-select arguments
+	user-select arguments
+
+font-feature-settings()
+	-webkit-font-feature-settings arguments
+	-moz-font-feature-settings arguments
+	-ms-font-feature-settings arguments
+	font-feature-settings arguments
+
+// Custom block containers
+.custom-block
+	&.tip
+	&.warning
+	&.error
+	&.danger
+		border-radius $containerBorderRadius
+	&.aside
+		color transparentify($textColor, 0.4)
+		font-size 0.9rem
+		text-align right
+	&.aside-guide
+		font-size 0.9rem
+		text-align left
+		p
+			margin-top: 0
+		a
+			color $accentColorSecondary
+
+// Guide container
+.guide
+	background-color $containerBackgroundColor
+	border-radius $containerBorderRadius
+	margin 1rem 0
+	padding 0.1rem 1.5rem
+	.title
+		font-weight bold
+
+// Expander container
+.expander
+	background-color $containerBackgroundColor
+	border-radius $containerBorderRadius
+	margin 1rem 0
+	padding 1rem 1.5rem
+	.expansion
+		user-select none
+		font-weight bold
+		&:focus
+			outline none
+
+// File tree
+.file-tree
+	font-family $codeFontFamily
+	font-size 0.85rem
+	list-style none
+	padding 0
+	li
+	ul
+		position relative
+	li
+		font-weight bold
+		margin 0
+		padding-left 1rem
+		&.file
+			font-weight normal
+		&::before
+		&::after
+			content ''
+			left 0
+			position absolute
+		&::before
+			border-top 1px solid #000000
+			height 0
+			top 0.7em
+			width 0.5em
+		&:last-child::after
+			height 0.7em
+		&::after
+			border-left 1px solid #000000
+			height 100%
+			top 0
+			width 0
+	ul
+		list-style none
+		margin-left 1em
+		padding 0
+	& > li:first-child::before
+	& > li:first-child::after
+		content none
+
+.side-by-side
+	align-content middle
+	display flex
+	justify-content center
+	& > *
+		width 50%
+	& > * + *
+		border-left 1px solid #aaaaaa
+	@media (max-width: $MQMobile)
+		flex-direction column
+		& > *
+			width 100%
+		& > * + *
+			border-left none
+			border-top 1px solid #aaaaaa
+			margin-top 0
+			padding-top 1em
+
+// Badge styling
+.badge
+	&.default-indicator
+		background-color $accentColor !important
+	&.version-indicator
+		background-color $badgeVersionColor !important
+
+// Index changes
+.home
+	max-width $homePageWidth
+	.hero img
+		max-height $heroImageHeight
+	.action
+		user-select none
+		a
+			border-radius $buttonBorderRadius
+			cursor pointer
+			font-family $buttonFontFamily
+			font-size 1.125em
+			width 10.5rem
+		.material-icons
+			font-size 1.125em
+			color #ffffff
+			margin-right 2px
+	.feature
+		text-align center
+		p
+			min-height 4em
+		img
+			max-height 28em
+			max-width 100%
+
+// Index download modal
+.download-container
+	button
+		user-select none
+	.download-actions
+		.download-stable-button
+		.download-preview-button
+		.download-confirm-button
+			border-bottom-width 0
+			border-radius $buttonBorderRadius
+			font-family $buttonFontFamily
+			font-size 1.125em
+			height 3rem
+			width 8.5rem
+			&:focus
+				outline none
+				outline-style solid
+		.download-preview-button
+			background-color $accentColorSecondary
+	.download-title
+		border-bottom-width 0
+	.download-footer
+		border-top-width 0
+		padding-top 0
+
+// Navbar Changes
+.navbar
+	.site-name.can-hide
+		/* Display navbar-name even for small screens */
+		@media (max-width: $MQMobile)
+			display inherit
+
+// Page Header Logo
+.headerLogo
+	vertical-align middle
+	height 3rem
+	margin-bottom .625rem
+
+// Center align class
+.centered
+	text-align center
+
+// Bold class
+.bold
+	font-weight bold
