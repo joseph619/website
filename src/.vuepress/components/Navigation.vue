@@ -32,7 +32,7 @@ export default {
 				library: { text: "Library", icon: "collections_bookmark" },
 				updates: { text: "Updates", icon: "new_releases" },
 				history: { text: "History", icon: "history" },
-				sources: { text: "Sources", icon: "explore" },
+				browse: { text: "Browse", icon: "explore" },
 				more: { text: "More", icon: "more_horiz" },
 				/* Actions */
 				search: { text: "Search", icon: "search" },
@@ -40,9 +40,8 @@ export default {
 				update_library: { text: "Update library", icon: "refresh" },
 				/* More */
 				downloaded_only: { text: "Downloaded only", icon: "cloud_off" },
-				extensions: { text: "Extensions", icon: "extension" },
 				download_queue: { text: "Download queue", icon: "get_app" },
-				source_migration: { text: "Source migration", icon: "compare_arrows" },
+				categories: { text: "Categories", icon: "label" }
 				settings: { text: "Settings", icon: "settings" },
 				about: { text: "About", icon: "info" },
 				help: { text: "Help", icon: "help" },
@@ -52,6 +51,7 @@ export default {
 				settings_reader: { text: "Reader", icon: "chrome_reader_mode", link: "/help/guides/reader" },
 				settings_downloads: { text: "Downloads", icon: "get_app", link: "/help/guides/downloads" },
 				settings_tracking: { text: "Tracking", icon: "autorenew", link: "/help/guides/tracking" },
+				settings_browse: { text: "Browse", icon: "explore", link: "/help/guides/browse" },
 				settings_backup: { text: "Backup", icon: "backup", link: "/help/guides/backup" },
 				settings_security: { text: "Security", icon: "security" },
 				settings_advanced: { text: "Advanced", icon: "code", link: "/help/guides/advanced" },
@@ -61,9 +61,12 @@ export default {
 				set_categories: { text: "Set categories", icon: "label" },
 				share: { text: "Share", icon: "share" },
 				webview: { text: "WebView", icon: "public" },
-				/* Sources */
-				latest: { text: "LATEST" },
-				browse: { text: "BROWSE" },
+				/* Browse */
+				sources: { text: "Sources" },
+				latest: { text: "Latest" },
+				extensions: { text: "Extensions" },
+				migrate: { text: "Migrate" },
+				
 			}[this.item];
 		},
 	},
